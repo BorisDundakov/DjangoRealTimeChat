@@ -76,6 +76,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'DjangoRealTimeChat.wsgi.application'  # for regular pages
 ASGI_APPLICATION = 'DjangoRealTimeChat.asgi.application'  # for long running ruinning connections
 
+CHANNEL_LAYERS = {
+    'default': {
+        # Stores the memory of the messages into the server
+        # Shutting the server down will result in memory loss
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    }
+}
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
